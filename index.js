@@ -37,7 +37,23 @@ app.use(cors());
 
 
 app.get('/photos', (req, res) => {
-  cloudinary.api.resources()
+  cloudinary.api.resources({ max_results: 100 })
+    .then(result => {
+      console.log(`Received photos`);
+      console.log(result);
+      res.json(result);
+    })
+    .catch(err => {
+      console.error(`Error fetching photos`);
+      console.error(err);
+      res.status(500).json({ error: err.message });
+    });
+});
+
+
+
+app.get('/folder', (req, res) => {
+  cloudinary.api.root_folders()
     .then(result => res.json(result))
     .catch(err => res.status(500).json({ error: err.message }));
 });
