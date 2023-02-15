@@ -1,8 +1,17 @@
 require('dotenv').config();
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
 const cloudinary = require('cloudinary').v2;
+const mongoose = require('mongoose');
+const pictureRouter = require('./Routes/PicturesRoutes');
 
+
+
+
+const cors = require('cors');
+app.use(cors());
+app.use(bodyParser.json());
 
 // eslint-disable-next-line no-unused-vars
 const cloudinaryConfig = cloudinary.config({
@@ -12,8 +21,17 @@ const cloudinaryConfig = cloudinary.config({
   secure: true,
 });
 
-const cors = require('cors');
-app.use(cors());
+
+mongoose.set('strictQuery', false);
+mongoose.connect(process.env.MONGO);
+
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+db.once('open', function() {
+  console.log('Connected to MongoDB database!');
+  // Write your code here.
+});
+
 
 
 // HOW TO UPLOAD //////////////////////////////////////////////////////////////////////////
@@ -35,6 +53,7 @@ app.use(cors());
 
 // HOW TO GRAB ALL ///////////////////////////////////////////////////////////
 
+app.use(pictureRouter);
 
 app.get('/photos', (req, res) => {
   cloudinary.api.resources({ max_results: 100 })
