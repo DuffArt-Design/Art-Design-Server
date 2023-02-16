@@ -14,7 +14,7 @@ async function createPicture(req, res, next) {
     const data = req.body;
 
     // Upload the image to Cloudinary and set the folder parameter
-    const uploadResult = await cloudinary.uploader.upload(data.url, {
+    const uploadResult = await cloudinary.uploader.upload(data.file, {
       folder: data.folder,
     });
 
