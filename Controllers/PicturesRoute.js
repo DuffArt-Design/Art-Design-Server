@@ -4,19 +4,20 @@ const cloudinary = require('cloudinary').v2;
 async function createPicture(req, res, next) {
   try {
     const data = req.body;
-
-    // Upload the image to Cloudinary and set the folder parameter
+  
     const uploadResult = await cloudinary.uploader.upload(data.file, {
       folder: data.folder,
     });
 
-    // Create a new picture object with the Cloudinary URL and other data
-    const newPicture = await Picture.create({
+    const newPictureData = {
       url: uploadResult.secure_url,
       id: uploadResult.public_id,
       name: data.name,
       description: data.description,
-    });
+      text: data.text,
+    };
+
+    const newPicture = await Picture.create(newPictureData);
 
     res.status(201).send(newPicture);
   } catch (e) {
@@ -24,6 +25,7 @@ async function createPicture(req, res, next) {
     next(e);
   }
 }
+
 
 async function getAllPictures(req, res, next) {
   try {
