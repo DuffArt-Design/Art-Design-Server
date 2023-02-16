@@ -1,20 +1,12 @@
 const Picture = require('../Models/picture');
 const cloudinary = require('cloudinary').v2;
-// eslint-disable-next-line no-unused-vars
-// const cloudinaryConfig = cloudinary.config({
-//   cloud_name: process.env.CLOUDNAME,
-//   api_key: process.env.CLOUDAPIKEY,
-//   api_secret: process.env.CLOUDINARYSECRET,
-//   secure: true,
-// });
-
 
 async function createPicture(req, res, next) {
   try {
     const data = req.body;
 
     // Upload the image to Cloudinary and set the folder parameter
-    const uploadResult = await cloudinary.uploader.upload(data.url, {
+    const uploadResult = await cloudinary.uploader.upload(data.file, {
       folder: data.folder,
     });
 
