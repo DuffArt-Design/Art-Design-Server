@@ -16,20 +16,20 @@ This is a user-friendly platform designed to showcase the digital art portfolio 
 
 ### Front End
 
-React: A JavaScript library for building user interfaces
-Sass: A CSS preprocessor for more efficient and flexible styling
-Axios: A promise-based HTTP client for making API requests
-Dotenv: A zero-dependency module that loads environment variables from a .env file
-React Router DOM: A library for declaratively routing URLs in a React application
-Mantine: A set of React components and hooks for building accessible and customizable UIs
-React Spinners: A library of loading spinners and animations for React applications
+- React: A JavaScript library for building user interfaces
+- Sass: A CSS preprocessor for more efficient and flexible styling
+- Axios: A promise-based HTTP client for making API requests
+- Dotenv: A zero-dependency module that loads environment variables from a .env file
+- React Router DOM: A library for declaratively routing URLs in a React application
+- Mantine: A set of React components and hooks for building accessible and customizable UIs
+- React Spinners: A library of loading spinners and animations for React applications
 
 ### Back End
 
-Cloudinary: A cloud-based image and video management service for optimized media delivery
-MongoDB: A NoSQL database for efficient data storage and management
-Express: A web application framework for Node.js
-Node.js: A JavaScript runtime for building scalable server-side applications
+- Cloudinary: A cloud-based image and video management service for optimized media delivery
+- MongoDB: A NoSQL database for efficient data storage and management
+- Express: A web application framework for Node.js
+- Node.js: A JavaScript runtime for building scalable server-side applications
 
 ## Credits
 
