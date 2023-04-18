@@ -23,7 +23,7 @@ This is a user-friendly platform designed to showcase the digital art portfolio 
 - React Router DOM: A library for declaratively routing URLs in a React application
 - Mantine: A set of React components and hooks for building accessible and customizable UIs
 - React Spinners: A library of loading spinners and animations for React applications
-- Framer: Complete documentation of the Framer Motion animation library. A production-ready motion library for React.
+- Framer: Framer Motion is a simple yet powerful motion library for React
 
 ### Back End
 
